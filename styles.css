@@ -1,90 +1,85 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 10px;
+    margin: 0;
     background-color: #1a1a1a;
     color: #f0f0f0;
+}
+
+.container {
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
+    animation: fadeIn 1s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
 h1 {
     text-align: center;
     color: #ffcc00;
-    margin-bottom: 10px;
-}
-
-.column {
-    float: left;
-    width: 350px; /* Ancho de cada columna */
-    margin-right: 20px; /* Espacio entre columnas */
-}
-
-.column:last-child {
-    margin-right: 0; /* No hay margen a la derecha para la última columna */
+    margin-bottom: 20px;
 }
 
 details {
-    margin-bottom: 15px; /* Aumento del espacio inferior */
+    margin-bottom: 15px;
     border: 1px solid #444;
-    border-radius: 5px; /* Aumento del radio de borde */
+    border-radius: 5px;
     overflow: hidden;
     background-color: #333;
-    width: 100%; /* Ancho al 100% del contenedor */
-    transition: width 0.5s ease-in-out;
+    transition: box-shadow 0.3s ease;
 }
 
-summary {
+details:hover {
+    box-shadow: 0 0 10px rgba(255, 204, 0, 0.5);
+}
+
+.summary {
     background-color: #444;
-    padding: 8px; /* Aumento del espacio interior */
+    padding: 12px;
     cursor: pointer;
     user-select: none;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-radius: 5px 5px 0 0; /* Aumento del radio de borde */
-    font-size: 0.9em; /* Ajuste del tamaño de fuente */
+    border-radius: 5px 5px 0 0;
+    font-size: 1em;
     font-weight: bold;
     transition: background-color 0.3s ease;
-}
-
-details[open] summary {
-    background-color: #555;
-}
-
-summary::after {
-    content: '▼';
-    transition: transform 0.3s ease-in-out;
-}
-
-details[open] summary::after {
-    content: '▲';
-    transform: rotate(180deg);
 }
 
 details p,
 details ul {
     background-color: #222;
-    padding: 8px; /* Aumento del espacio interior */
+    padding: 12px;
     margin: 0;
     border-top: 1px solid #444;
-    font-size: 0.8em; /* Ajuste del tamaño de fuente */
-    line-height: 1.5;
+    font-size: 0.9em;
+    line-height: 1.6;
 }
 
 ul {
     list-style-type: disc;
-    padding-left: 25px; /* Ajuste de la sangría */
+    padding-left: 25px;
 }
 
 ul li {
-    margin: 5px 0; /* Aumento del espacio entre elementos */
+    margin: 5px 0;
 }
 
 img.image {
     max-width: 100%;
     height: auto;
     display: block;
-    margin: 10px auto; /* Aumento del espacio exterior */
+    margin: 10px auto;
     border-radius: 5px;
-    max-height: 300px; /* Aumento de la altura máxima */
+    max-height: 300px;
 }
 
 a {
@@ -98,9 +93,9 @@ a:hover {
 
 .note {
     background-color: #444;
-    padding: 8px; /* Aumento del espacio interior */
+    padding: 12px;
     border-radius: 5px;
-    margin-top: 10px; /* Aumento del espacio superior */
-    font-size: 0.8em; /* Ajuste del tamaño de fuente */
-    line-height: 1.5;
+    margin-top: 10px;
+    font-size: 0.9em;
+    line-height: 1.6;
 }
