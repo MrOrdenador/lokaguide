@@ -1,15 +1,31 @@
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: Arial, sans-serif;
     margin: 0;
-    background-color: #1a1a1a;
-    color: #f0f0f0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.emoji {
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
+}
+
+.details-summary {
+    transition: background-color 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+details[open] .details-summary {
+    background-color: #666;
+    color: #fff;
 }
 
 .container {
-    max-width: 900px;
-    margin: auto;
-    padding: 20px;
     animation: fadeIn 1s ease-in;
+    padding: 20px;
+    max-width: 800px;
+    margin: auto;
 }
 
 @keyframes fadeIn {
@@ -19,6 +35,57 @@ body {
     to {
         opacity: 1;
     }
+}
+
+.search-box {
+    text-align: right;
+    padding: 10px 20px;
+}
+
+.search-box input[type="text"] {
+    padding: 5px;
+    width: 200px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+details {
+    margin-bottom: 20px;
+}
+
+.details-content {
+    border-left: 4px solid #666;
+    padding-left: 10px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+summary {
+    border-radius: 0;
+}
+
+#nothing-found {
+    color: red;
+    display: none;
+    margin-top: 20px;
+    font-size: 24px;
+    text-align: center;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #1a1a1a;
+    color: #f0f0f0;
+}
+
+.container {
+    max-width: 900px;
+    padding: 20px;
 }
 
 h1 {
@@ -98,4 +165,9 @@ a:hover {
     margin-top: 10px;
     font-size: 0.9em;
     line-height: 1.6;
+}
+
+
+details[open] .details-content {
+    max-height: 1000px; 
 }
