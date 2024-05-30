@@ -12,23 +12,34 @@
     <link rel="icon" type="image/png" href="https://i.imgur.com/k71wRkb.png">
     <link rel="stylesheet" href="styles.css">
     <style>
+                body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         .emoji {
             width: 24px;
             height: 24px;
             vertical-align: middle;
         }
 
-        /* Animaciones */
         .details-summary {
             transition: background-color 0.3s ease-in-out;
+            cursor: pointer;
         }
 
         details[open] .details-summary {
             background-color: #666;
+            color: #fff;
         }
 
         .container {
             animation: fadeIn 1s ease-in;
+            padding: 20px;
+            max-width: 800px;
+            margin: auto;
         }
 
         @keyframes fadeIn {
@@ -40,14 +51,54 @@
             }
         }
 
+        .search-box {
+            text-align: right;
+            padding: 10px 20px;
+        }
+
+        .search-box input[type="text"] {
+            padding: 5px;
+            width: 200px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        details {
+            margin-bottom: 20px;
+        }
+
+        .details-content {
+            border-left: 4px solid #666;
+            padding-left: 10px;
+        }
+
+        summary {
+            border-radius: 0;
+        }
+
+        #nothing-found {
+            color: red;
+            display: none;
+            margin-top: 20px;
+            font-size: 24px;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
 
+<div class="search-box">
+    <input type="text" id="searchInput" placeholder="Search sections...">
+</div>
+
 <div class="container">
     <h1><img src="https://i.imgur.com/k71wRkb.png" alt="LokaEmoji" class="emoji"> Loka Grinding Guide <img src="https://i.imgur.com/k71wRkb.png" alt="LokaEmoji" class="emoji"></h1>
 
-    <details>
+    <details id="sand">
         <summary class="details-summary"><img src="https://minecraft.wiki/images/Sand_JE5_BE3.png?ae2df" alt="Sand Emoji" class="emoji"> Sand</summary>
         <p>
             To collect sand, head to Garama docks and then proceed north. Bring 2-3 shovels and shulker boxes.<br>
@@ -60,7 +111,7 @@
         </p>
     </details>
 
-    <details>
+    <details id="nether-wart">
         <summary class="details-summary"><img src="https://minecraft.wiki/images/thumb/Nether_Wart_%28item%29_JE2_BE1.png/150px-Nether_Wart_%28item%29_JE2_BE1.png?65953" alt="Nether Wart Emoji" class="emoji"> Nether Wart</summary>
         <p>
             Nether wart can be found in various spots around the Nether. Use a Fortune 3 tool for maximum yield.<br>
@@ -78,7 +129,8 @@
         <p>You should have about or more than 2 shulkers when finishing this run.</p>
     </details>
 
-    <details>
+
+    <details id="glowstone">
         <summary class="details-summary"><img src="https://minecraft.wiki/images/Glowstone_JE4_BE2.png?0d5b0" alt="Glowstone Emoji" class="emoji"> Glowstone</summary>
         <p>
             To collect glowstone, bring blocks and an elytra. Pillar up and break the glowstone on top of Nether caves.<br>
@@ -86,7 +138,7 @@
         </p>
     </details>
 
-    <details>
+    <details id="infested-territories">
         <summary class="details-summary"><img src="https://i.imgur.com/1eZKSUa.png" alt="Infested Territories" class="emoji"> Infested Territories</summary>
         <p>
             Infested Territories are filled with constantly spawning monsters. Custom loot tables replace standard mob drops.<br>
@@ -107,7 +159,7 @@
         </p>
     </details>
 
-    <details>
+    <details id="resource-isle">
         <summary class="details-summary"><img src="https://i.imgur.com/mlmhuPd.png" alt="Resource Isle Emoji" class="emoji"> Resource Isle</summary>
         <p>
             Mining on Loka is a quick way to obtain money and diamonds. Each continent (Garama, Ascalon, Kalros) has three resource isles (RIs), each with different ore spreads.<br>
@@ -137,7 +189,7 @@
         </p>
     </details>
 
-    <details>
+    <details id="pearls">
         <summary class="details-summary"><img src="https://minecraft.wiki/images/Ender_Pearl_JE3_BE2.png?829a7" alt="Resource Isle Emoji" class="emoji"> Pearls</summary>
         <p>
             <strong>Kit for Pearl Farming:</strong>
@@ -153,7 +205,7 @@
         <p>Also, you have here a grinding method: <a href="https://youtu.be/BLYD0Ee6YkU?si=WRSfrIYWJ-2JdDRI" target="_blank">Pearl Grinding Method</a></p>
     </details>
 
-    <details>
+    <details id="shulkers">
         <summary class="details-summary"><img src="https://minecraft.wiki/images/Shulker_Closed.png?98fc5" alt="Resource Isle Emoji" class="emoji"> Shulkers</summary>
         <p>
             <strong>Shulker Farming Kit:</strong><br>
@@ -167,7 +219,7 @@
         </ul>
     </details>
 
-    <details>
+    <details id="elytras">
         <summary class="details-summary"><img src="https://minecraft.wiki/images/Elytra_%28item%29_JE1_BE1.png?8f01d" alt="Resource Isle Emoji" class="emoji"> Elytras</summary>
         <p>
             <strong>How to go to Dragon Island:</strong><br>
@@ -182,14 +234,14 @@
         <img src="https://i.imgur.com/HaKUrlx.png" alt="Elytra Farming Kit" class="image">
     </details>
 
-    <details>
+    <details id="enchanting">
         <summary class="details-summary"><img src="https://minecraft.wiki/images/Enchanted_Book.gif?c1b90&format=original" alt="Resource Isle Emoji" class="emoji"> Enchanting</summary>
         <p>
             This is difficult to explain in a text, so here you have a video: <a href="https://youtu.be/4qjhQTGXT1U" target="_blank">Enchanting Tutorial</a>
         </p>
     </details>
 
-    <details>
+    <details id="shrines">
         <summary class="details-summary"><img src="https://minecraft.wiki/images/Ghast_Tear_JE2_BE2.png?2c989" alt="Resource Isle Emoji" class="emoji"> Shrines</summary>
         <div style="padding-left: 20px;">
             <p><strong>Coordinates:</strong></p>
@@ -219,7 +271,239 @@
             <p>Also, here's a video: <a href="https://www.youtube.com/watch?v=DRb3czthG0w" target="_blank">How to Grind Shrines on Loka</a></p>
         </div>
     </details>
+
+    <details id="obsidian">
+        <summary class="details-summary"><img src="https://minecraft.wiki/images/Obsidian_JE3_BE2.png?0a8ae" alt="Obsidian Emoji" class="emoji"> Obsidian</summary>
+        <p>
+            To gather Obsidian, head to the Dragon Isle and locate the tallest tower. Simply mine downwards from the top to collect Obsidian efficiently.<br>
+            <strong>How to get to Dragon Island:</strong><br>
+            Go to the end docks and then to the coordinates: x = -983, z = 329.<br>
+            Use an Ender Pearl to enter the End Gateway.
+        </p>
+    </details>
+
+    <details id="food">
+        <summary class="details-summary"><img src="https://minecraft.wiki/images/Carrot_JE3_BE2.png?6b9f9" alt="Food Emoji" class="emoji"> Food</summary>
+        <div style="padding-left: 20px;">
+            <p><strong>Grinding Food:</strong></p>
+            <p>For grinding food, head to Ascalon docks where cows spawn in groups of 2-4. Make sure to bring a Looting 3 sword and appropriate armor for efficient farming.</p>
+            <p><strong>Recommended Grinding Areas:</strong></p>
+            <ul>
+                <li><strong>Ascalon:</strong> Birch forest (near docks), Sunset Isle</li>
+                <li><strong>Garama:</strong> Savanna</li>
+                <li><strong>Kalros:</strong> Plains and spruce forest (near docks)</li>
+            </ul>
+            <p>Additionally, for wheat, visit Ascalon forest. Potatoes can be obtained from Garama, while carrots can be found in Kalros. Alternatively, you can grow potatoes and carrots in your town for a sustainable food source.</p>
+        </div>
+    </details>
+
+<details id="ruins">
+    <summary class="details-summary"><img src="https://i.imgur.com/Hb7k5yE.png" alt="Ruins Emoji" class="emoji"> Ruins</summary>
+    <div style="padding-left: 20px;">
+        <p><strong>What are The Ruins?</strong></p>
+        <p>Ruins are old, fallen towns converted into ruins by admins. In ruins, you can find diamond armor, tools, brewing materials, and most importantly, armor trims. Every container has a chance to contain loot (e.g., furnaces, chests), so leave nothing unlooted. Additionally, loot pouches can be found around ruins which contain loot. When you're near them, you can hear a sparkling sound. </p>
+
+        <ul>
+            <li><strong>Ascalon:</strong> Seraphim - 3834 / 4756, Valinor - 4100 / 6500, Heldenstadt - 3425 / 2525, Thunderhold - 5400 / 1800</li>
+            <li><strong>Garama:</strong> Amberfell - 5218 / 3300, Varmastrand - 3300 / 2700, New Arxem - 1800 / 4000, Vantis - 1200 / 2900, Camelot - 2100 / 5100</li>
+            <li><strong>Kalros:</strong> Nerd Nation - 1200 / 3000, ??? - 5700 / 4200, Karldrsvell - 5800 / 2400, Seagulls - 1200 / 2338</li>
+       </p>
+    </div>
+</details>
+
+
+<details id="money">
+    <summary class="details-summary"><img src="https://66.media.tumblr.com/b73560caa55f52cd1ef25875748d052a/tumblr_mfqeb5iNG01rfjowdo1_500.gifv" alt="Money" class="emoji"> Money Making</summary>
+    <div style="padding-left: 20px;">
+        <p><strong>Money Making Methods</strong></p>
+        <p>Here are some methods to make money in the game:</p>
+
+        <p><strong>Good Money Making Methods</strong></p>
+        <ul>
+            <li>Red infested tiles - 24-30k shards per hour</li>
+            <li>Ri Mining - 10-16k shards in approximately 30 minutes to 1 hour</li>
+            <li>Netherwart farming - 10-30k shards per hour depending on the farm</li>
+        </ul>
+
+        <p><strong>Decent Money Making Methods (average profit per hour)</strong></p>
+        <ul>
+            <li>Shrines - 8-10k shards per hour</li>
+            <li>Ender Pearl farming (dragon isle) - 7-12k shards per hour</li>
+            <li>Elytra farming - 1k every 5-10 minutes (7-14k shards per hour)</li>
+            <li>Mining obsidian - 9k shards per hour</li>
+            <li>Wood (Spruce/Dark oak) - 8-12k shards per hour</li>
+            <li>Yellow infested tiles - 10-18k shards per hour</li>
+            <li>Wheat, Potatoes, Carrots - 5-7k shards per hour (bonemeal-based farm)</li>
+        </ul>
+
+        <p><strong>Bad Money Making Methods (don't try)</strong></p>
+        <ul>
+            <li>Farming food (cows, pigs, sheep) - 5-9k shards per hour (spawn rate is bad, buying food or industry is a better option)</li>
+            <li>Glowstone - 5-8k shards per hour</li>
+            <li>Dreadfort farming - 5-9k shards per hour (blaze rods, magma cream) only good if double drops</li>
+        </ul>
+
+        <p><strong>Some Other Money Making Methods</strong></p>
+        <ul>
+            <li>Wither skull farming - 30-50% chance to drop wither skull every 22 minutes</li>
+            <li>Shulker box farming - respawns every 3 hours (can get 20-40 shulker shells) (double drops)</li>
+            <li>Sticky webbing - Just don't</li>
+            <li>Market flipping - luck-based 5-30k shards per hour</li>
+            <li>Buying from players (for cheap) and reselling on market (high price)</li>
+            <li>Buying sets worth less than diamond price and relisting (NPC diamond prices)</li>
+        </ul>
+
+        <p>Most items don't sell fast, only pot mats.</p>
+    </div>
+</details>
+
+<details id="town-leveling">
+    <summary class="details-summary"><img src="https://minecraft.wiki/images/Diamond_Pickaxe_JE3_BE3.png?7409d&20200226193952" alt="Town Leveling" class="emoji"> Town Leveling</summary>
+    <div style="padding-left: 20px;">
+        <p><strong>Town Leveling Methods</strong></p>
+        <p>Hey, basically this is how to level a town from level 1 to level 22-25 within a week or two (Depending on how many people help out/how much you no-life).</p>
+
+        <details>
+            <summary><img src="https://minecraft.wiki/images/Diamond_Pickaxe_JE3_BE3.png?7409d&20200226193952" alt="Mining Emoji" class="emoji"> Mining</summary>
+            <p>Go to the Resource Isle (Garama and Kalros mostly) and just mine it out, ores give the most exp when it comes to this town level so it's a sure bet to level up your town.</p>
+        </details>
+
+        <details>
+            <summary><img src="https://minecraft.wiki/images/Paper_JE2_BE2.png?9c3be&20230611043112" alt="Logging Emoji" class="emoji"> Logging</summary>
+            <p>This depends on what alliance you're in and where your town is located.</p>
+            <p>If you control the Mega Taiga, (And your town is on kalros / your in a kalros alliance which has biome control) your able to plant a bunch of 2x2 spruce trees and just chop until you can't do it anymore.</p>
+            <p>If you control the Ancient Jungle (Or maybe even jungle, not too sure) your able to do the exact same as what i said above, but with jungle trees.</p>
+            <p>If your in **NEITHER** of these places, my best bet is to either chop on the top of your tile or go to **Garama Docks** and chop the wood there. **OR** head to the **Mushroom Isle** on **Ascalon (2148, 7608)** and chop down the mushroom trees for EXP as well. (shoutout monkeynick for telling me this)</p>
+        </details>
+
+        <details>
+            <summary><img src="https://minecraft.wiki/images/Diamond_Shovel_JE3_BE3.png?fd904&format=original" alt="Excavation Emoji" class="emoji"> Excavation</summary>
+            <p>This also depends where your town is located, but not so much.</p>
+            <p>If you are in the **Clay Cliffs** region of Ascalon (and you have biome control), your able to obtain clay and get a bunch of excavation levels. You also can smelt the clay for crafting levels, which is nice.</p>
+            <p>If you aren't in the **Clay Cliffs**, you have two options. Either dig out all of the soul sand in the nether, which gives more EXP but soul sand is genuinely useless, or dig out all of **Garama Beach (4457, 1897)** or parts of the **Garama Desert (2496, 2822)** to get a bunch of sand, which gives you a little less EXP but it's genuinely more useful for building or brewing.</p>
+        </details>
+
+        <details>
+            <summary><img src="https://minecraft.wiki/images/Egg_JE2_BE2.png?495d9" alt="Farming Emoji" class="emoji"> Farming</summary>
+            <p>Go to the **Ascalon Wheat Fields (1796, 4500)** and just break all the wheat you can find. Will level up the farming level pretty fast.</p>
+        </details>
+
+        <details>
+            <summary><img src="https://minecraft.wiki/images/Enchanted_Book.gif?c1b90&format=original" alt="Enchanting Emoji" class="emoji"> Enchanting</summary>
+            <p>Spam enchant level one enchants (with books) until you hit **Enchanting Level 40**, then spam enchant books until you hit around **Level 60 to 70**. Not worth going past it unless you have a surplus of XP bottles and books.</p>
+        </details>
+
+        <details>
+            <summary><img src="https://minecraft.wiki/images/Brewing_Stand_%28empty%29_JE10.png?58d74" alt="Alchemy Emoji" class="emoji"> Alchemy</summary>
+            <p>Honestly just brew. Build mocc brewer (https://forums.lokamc.com/threads/moccs-gigabrewers.6302/) and shit out pots until you run out of mats.</p>
+        </details>
+
+        <details>
+            <summary><img src="https://minecraft.wiki/images/Smithing_Table_JE2_BE2.png?9d5a7" alt="Blacksmithing Emoji" class="emoji"> Blacksmithing</summary>
+            <p>Craft diamond sets and tools. Enchant these to get enchanting levels too, a bit of a 2 in 1 level strat <:Prayge:837018540519063662></p>
+        </details>
+
+        <details>
+            <summary><img src="https://minecraft.wiki/images/Diamond_Sword_JE3_BE3.png?24296&format=original" alt="WorldPvP Emoji" class="emoji"> WorldPvP</summary>
+            <p>Go to conquest fights and get kills, or go ganking (<#1244368271323693229>) and kill people. Only way to level up this level is to stab people <:Shocked:1096513021209227324> </p>
+        </details>
+
+        <details>
+            <summary><img src="https://minecraft.wiki/images/Oak_Planks.png?d9efa" alt="Building Emoji" class="emoji"> Building</summary>
+            <p>Build your town. Place blocks, any block doesn't matter just by building your war room or your town schematic.</p>
+        </details>
+
+        <details>
+            <summary><img src="https://minecraft.wiki/images/Crafting_Table_JE4_BE3.png?5767f" alt="Crafting Emoji" class="emoji"> Crafting</summary>
+            <p>Smelt clay balls, it sounds weird but it gives **ALOT** of town levels. It's crazy asf <:sobpuddle:1144223230404603944></p>
+        </details>
+    </div>
+</details>
+
+
+<details id="ganks">
+    <summary class="details-summary"><img src="https://i.imgur.com/75cKmrF.png" alt="ganks" class="emoji"> Ganks</summary>
+    <div style="padding-left: 20px;">
+        <h2>What is Ganking?</h2>
+        <p>Going to Zyre Cove/Fissure and battling other players in 1v1s or "ganks" (Fights consisting of more than 1 player on each side). Also my favorite part of Loka.</p>
+        <p>When you die at Cove/Fissure, all items in your inventory and /b are lost including shards.</p>
+    </div>
+    
+    <div style="padding-left: 20px;">
+        <h2>Maps <img src="https://minecraft.wiki/images/Invicon_Map.png?24187" alt="Maps Icon" width="20"></h2>
+        <h3>Normal Zyre</h3>
+        <ul>
+            <li>Large map, never rotates.</li>
+            <li>Corruption on certain parts of map.</li>
+            <li>Diamond armor/tools/weapons become unstable on entry.</li>
+            <li>Escape by waiting on the airship which changes locations every 10 minutes.</li>
+            <li>Unpopular, not many fights.</li>
+        </ul>
+        <h3>Zyre Cove/Fissure</h3>
+        <ul>
+            <li>Small maps, rotates every few days (/cal)</li>
+            <li>Almost all water sources corrupted.</li>
+            <li>Items not unstable on entry.</li>
+            <li>Escape by using /kill at spawn while NOT in combat.</li>
+            <li>Your items do not become unstable upon entering.</li>
+            <li>Popular, near constant fighting.</li>
+        </ul>
+    </div>
+    
+    <div style="padding-left: 20px;">
+        <h2>Kit <img src="https://minecraft.wiki/images/thumb/Diamond_Armor_with_Diamond_Shaper_Trim.png/150px-Diamond_Armor_with_Diamond_Shaper_Trim.png?7f6f4" alt="Kit Icon" width="20"></h2>
+        <h3>Average Kit</h3>
+        <p>P4 U3 Diamond Armor</p>
+        <p>S5 Diamond Sword</p>
+        <p>E5 ST1 Diamond Pickaxe</p>
+        <p>16 Enderpearls</p>
+        <p>1-3 Shulkers</p>
+        <p>20-32 Food</p>
+        <p>4 Ancient Ingots</p>
+        <p>1-2 Ender Chests</p>
+        <p>3 Sets of Buffs</p>
+        <p>Fill with Splash HP2 Pots</p>
+        <h3>Enderchest</h3>
+        <p>Ancient Ingots</p>
+        <p>Food</p>
+        <p>16 Pearls</p>
+        <p>2-3 Sets of Buffs</p>
+        <p>Fill with Splash HP2 Pots</p>
+    </div>
+</details>
+
+
 </div>
+
+
+    <p id="nothing-found">Nothing Found :(</p>
+
+</div>
+
+<script>
+    document.getElementById('searchInput').addEventListener('input', function() {
+        const filter = this.value.toLowerCase();
+        const details = document.querySelectorAll('details');
+        let found = false;
+
+        details.forEach(detail => {
+            const summaryText = detail.querySelector('summary').textContent.toLowerCase();
+            if (summaryText.includes(filter)) {
+                detail.style.display = '';
+                found = true;
+            } else {
+                detail.style.display = 'none';
+            }
+        });
+
+        // Mostrar el mensaje de Nothing Found si no se encuentra ninguna coincidencia
+        if (!found) {
+            document.getElementById('nothing-found').style.display = 'block';
+        } else {
+            document.getElementById('nothing-found').style.display = 'none';
+        }
+    });
+</script>
 
 </body>
 </html>
