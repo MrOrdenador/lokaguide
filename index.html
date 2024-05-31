@@ -110,10 +110,28 @@
                 max-width: 800px;
             }
         }
+        /* Estilos para el desplegable */
+        .lang-dropdown {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+
+        .lang-dropdown select {
+            padding: 5px;
+            border-radius: 5px;
+        }
     </style>
 </head>
 <body>
 
+<!-- Desplegable para cambiar de idioma -->
+<div class="lang-dropdown">
+    <select onchange="changeLanguage()">
+        <option value="en">English</option>
+        <option value="es">Español</option>
+    </select>
+</div>
 <div class="search-box">
     <input type="text" id="searchInput" placeholder="Search sections...">
 </div>
@@ -514,8 +532,14 @@
                 detail.style.display = 'none';
             }
         });
+        
+function changeLanguage() {
+        var langSelect = document.querySelector('.lang-dropdown select');
+        var selectedLang = langSelect.value;
 
-        // Mostrar el mensaje de Nothing Found si no se encuentra ninguna coincidencia
+        // Redirigir a la misma página con el parámetro de idioma seleccionado
+        window.location.href = window.location.pathname + '?lang=' + selectedLang;
+    }
         if (!found) {
             document.getElementById('nothing-found').style.display = 'block';
         } else {
