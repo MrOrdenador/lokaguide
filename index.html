@@ -17,6 +17,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-size: 16px; /* Adjust font size for mobile */
         }
 
         .emoji {
@@ -37,8 +38,8 @@
 
         .container {
             animation: fadeIn 1s ease-in;
-            padding: 20px;
-            max-width: 800px;
+            padding: 10px;
+            max-width: 100%; /* Adjust max-width for mobile */
             margin: auto;
         }
 
@@ -52,13 +53,13 @@
         }
 
         .search-box {
-            text-align: right;
+            text-align: center; /* Center align for mobile */
             padding: 10px 20px;
         }
 
         .search-box input[type="text"] {
-            padding: 5px;
-            width: 200px;
+            padding: 10px; /* Increase padding for better touchability */
+            width: 100%; /* Adjust width for mobile */
             border-radius: 5px;
             border: 1px solid #ccc;
         }
@@ -84,7 +85,7 @@
             color: red;
             display: none;
             margin-top: 20px;
-            font-size: 24px;
+            font-size: 20px; /* Increase font size for better visibility */
             text-align: center;
         }
 
@@ -96,6 +97,20 @@
             color: #888;
         }
 
+        @media only screen and (max-width: 600px) { /* Adjust for smaller screens */
+            .container {
+                padding: 5px;
+            }
+            .search-box input[type="text"] {
+                padding: 8px;
+            }
+            .details-content {
+                padding-left: 5px;
+            }
+            #nothing-found {
+                font-size: 18px;
+            }
+        }
     </style>
 </head>
 <body>
