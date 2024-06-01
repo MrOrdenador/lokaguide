@@ -118,8 +118,10 @@
 
 <div class="language-selector">
     <select id="languageSelect">
-        <option value="en">English</option>
+        <option value="en" selected>English</option>
         <option value="es">Español</option>
+        <option value="gr">Ελληνικά</option>
+
     </select>
 </div>
 
@@ -569,11 +571,14 @@
 
 document.getElementById('languageSelect').addEventListener('change', function() {
     const selectedLanguage = this.value;
-    if (selectedLanguage === 'es') {
-        window.location.href = './index_es.html'; 
-    } else if (selectedLanguage === 'en') {
+    if (selectedLanguage === 'en') {
         window.location.href = './index.html'; 
     }
+    else if (selectedLanguage === 'es') {
+        window.location.href = './index_es.html'; 
+   }else if (selectedLanguage === 'gr') {
+        window.location.href = './index_gr.html'; 
+ }
 })
 </script>
 
