@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Guía de Farmeo de Loka" property="og:title" />
-    <meta content="Una guía para farmear mejor en Lokamc" property="og:description" />
+    <meta content="Una guía para grindear mejor en Lokamc" property="og:description" />
     <meta content="https://mrordenador.github.io/lokaguide/" property="og:url" />
     <meta content="https://i.imgur.com/k71wRkb.png" property="og:image" />
     <meta content="#000" data-react-helmet="true" name="theme-color" />
@@ -125,6 +125,8 @@
     <select id="languageSelect">
         <option value="en">English</option>
         <option value="es" selected>Español</option>
+        <option value="gr">Ελληνικά</option>
+
     </select>
 </div>
 
@@ -547,7 +549,7 @@
     </div>
 </div>
 
-<p id="nothing-found">Nada encontrado :(</p>
+<p id="nothing-found">Nothing Found :(</p>
 
 <script>
     document.getElementById('searchInput').addEventListener('input', function() {
@@ -574,14 +576,14 @@
 
 document.getElementById('languageSelect').addEventListener('change', function() {
     const selectedLanguage = this.value;
-
     if (selectedLanguage === 'en') {
         window.location.href = './index.html'; 
     }
     else if (selectedLanguage === 'es') {
         window.location.href = './index_es.html'; 
+   }else if (selectedLanguage === 'gr') {
+        window.location.href = './index_gr.html'; 
  }
-
 })
 </script>
 
