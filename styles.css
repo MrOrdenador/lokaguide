@@ -27,15 +27,15 @@
             max-width: 800px;
             margin: auto;
         }
-       .corner-text {
-            position: fixed;
-            left: 10px;
-            bottom: 10px;
-            color: white;
-            padding: 5px;
-            font-size: 14px;
-            z-index: 1000;
-        }
+.corner-text {
+    position: fixed;
+    left: 10px;
+    bottom: 10px;
+    color: white;
+    padding: 5px;
+    font-size: 14px;
+    z-index: 1000;
+}
 
         @keyframes fadeIn {
             from {
